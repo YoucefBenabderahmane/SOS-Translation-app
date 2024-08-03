@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "translation",
+    "scheme": "translation",
     "slug": "translation",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -12,16 +13,31 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "translation"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.josefben.translation"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+      
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f483f52e-c35a-4a78-ba77-8e8eeedd247b"
+      }
     }
   }
 }
