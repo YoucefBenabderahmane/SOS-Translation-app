@@ -190,7 +190,7 @@ const profile = () => {
           <View className="flex flex-row justify-around my-5">
             <TouchableOpacity
               className="flex-1 items-center p-4 mx-2 bg-white rounded-2xl border-2 shadow-md"
-              onPress={() => router.push("/Actions")}>
+              onPress={() => router.push("../translatedPapers")}>
 
               <Image
                 source={images.pap}
@@ -208,7 +208,7 @@ const profile = () => {
             </TouchableOpacity>
             <TouchableOpacity
               className="flex-1 items-center p-4 mx-2 bg-white rounded-2xl border-2 shadow-md"
-              onPress={() => router.push("/translator")}>
+              onPress={() => router.push("../bookedTranslator")}>
 
               <Image 
               source={images.trapic} 
@@ -226,7 +226,7 @@ const profile = () => {
           
             <TouchableOpacity
               className="flex-1 items-center p-4 mx-2 bg-white rounded-2xl border-2 shadow-md"
-              onPress={() => router.push("/Actions")}>
+              onPress={() => router.push("../reviewPapers")}>
 
               <Image 
               source={images.book} 

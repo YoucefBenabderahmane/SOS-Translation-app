@@ -4,6 +4,8 @@ import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
 import AnimatedSplashScreen from './AnimatedSplashScreen'; // Update the path accordingly
 
+
+
 SplashScreen.preventAutoHideAsync();
 
 const RootLayout = () => {
@@ -29,7 +31,9 @@ const RootLayout = () => {
       <Stack.Screen name='index' options={{ headerShown: false }} />
       <Stack.Screen name='(auth)' options={{ headerShown: false }} />
       <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-      <Stack.Screen name='Actions' options={{ headerShown: false }} />
+      <Stack.Screen name='./translatedPapers' options={{ headerShown: false }} />
+      <Stack.Screen name='./bookedTranslator' options={{ headerShown: false }} />
+      <Stack.Screen name='./reviewPapers' options={{ headerShown: false }} />
     </Stack>
   );
 };

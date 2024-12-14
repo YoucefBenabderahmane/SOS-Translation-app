@@ -13,6 +13,10 @@ const initialItems = [
   { label: 'Arabic', value: 'ar' },
   { label: 'Spanish', value: 'span' },
   { label: 'Italian', value: 'ita' },
+  { label: 'Chinese', value: 'ch' },
+  { label: 'Russian', value: 'ru' },
+  { label: 'Turkish', value: 'tr' },
+  { label: 'Deutsch', value: 'de' },
 ];
 
 const Papers = ({ initialMenuVisible = false }) => {
@@ -25,6 +29,7 @@ const Papers = ({ initialMenuVisible = false }) => {
   const [num, setNum] = useState('');
   const [notes, setNotes] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
+
 
   const toggleMenu = () => {
     if (menuVisible) {
