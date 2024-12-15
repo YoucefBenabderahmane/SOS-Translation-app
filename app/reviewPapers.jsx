@@ -8,13 +8,14 @@ const reviewPapers = () => {
   return (
     <SafeAreaView className="flex-1 bg-primary">
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="mt-10 items-center ">
         <Image
           source={images.book}
           resizeMode="contain"
-          className="w-1/2 h-20 mt-10 ml-24"
+          className="w-1/2 h-20 mt-10"
         />
 
-        <Text className="mt-2 ml-36 ">Review Actions</Text>
+        <Text className="mt-2 ">Review Actions</Text>
         <View className="flex mt-10 ml-10 mr-10 items-center ">
           <Text className="text-xl font-ibbrita">SOS offers professional copywriting and linguistic checking services to ensure your content is clear, engaging, and error-free. Whether for business documents, marketing materials, or presentations, our experts refine your language for accuracy, style, and cultural relevance, helping you communicate effectively in any context. </Text>
         </View>
@@ -28,6 +29,7 @@ const reviewPapers = () => {
             </Text>
           </TouchableOpacity>
           {/* Add more TouchableOpacity components for other items */}
+        </View>
         </View>
       </ScrollView>
     </SafeAreaView>

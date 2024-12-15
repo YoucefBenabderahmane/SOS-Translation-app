@@ -7,12 +7,13 @@ const translatedPapers = () => {
   return (
     <SafeAreaView className="flex-1 bg-primary">
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View className="mt-20 items-center ">
         <Image
           source={images.pap}
           resizeMode="contain"
-          className="w-1/2 h-20 mt-10 ml-24"
+          className="w-1/2 h-20 mt-10 "
         />
-        <Text className="mt-2 ml-36 ">Translated Papers</Text>
+        <Text className="mt-2 ">Translated Papers</Text>
         <View className="flex mt-10 ml-10 mr-10 items-center ">
           <Text className="text-xl font-ibbrita">Tradicture provides quick, accurate translation of official documents, including contracts, certificates, and more. Our expert translators ensure high-quality, confidential, and culturally appropriate translations for all your business needs.</Text>
         </View>
@@ -27,6 +28,7 @@ const translatedPapers = () => {
             </Text>
           </TouchableOpacity>
           {/* Add more TouchableOpacity components for other items */}
+        </View>
         </View>
       </ScrollView>
     </SafeAreaView>

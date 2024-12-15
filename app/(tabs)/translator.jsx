@@ -4,11 +4,12 @@ import { TextInput, Badge } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { images, icons } from '../../constants';
 import { Link, router } from 'expo-router';
-import DropDownPicker from 'react-native-dropdown-picker';
+import { Picker } from '@react-native-picker/picker';
 import * as DocumentPicker from 'expo-document-picker';
 import { FlatList } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { RadioGroup } from 'react-native-radio-buttons-group';
+
 
 const initialItems = [
   { label: 'English', value: 'eng' },
@@ -16,10 +17,10 @@ const initialItems = [
   { label: 'Arabic', value: 'ar' },
   { label: 'Spanish', value: 'span' },
   { label: 'Italian', value: 'ita' },
-  { label: 'Chinese', value: 'ch' },
-  { label: 'Russian', value: 'ru' },
-  { label: 'Turkish', value: 'tr' },
-  { label: 'Deutsch', value: 'de' },
+  { label: 'Chinese', value: 'chi' }, // Added Chinese
+  { label: 'Russian', value: 'rus' }, // Added Russian
+  { label: 'Turkish', value: 'tur' }, // Added Turkish
+  { label: 'German', value: 'deu' },  // Added German (Deutsch)
 ];
 
 const translator = ({ initialMenuVisible = false }) => {
@@ -28,6 +29,7 @@ const translator = ({ initialMenuVisible = false }) => {
   const [opening, setOpening] = useState(false);
   const [value, setValue] = useState(null);
   const [items, setItems] = useState(initialItems);
+    const [selectedLanguage, setSelectedLanguage] = useState('eng');
   const [subject, setSubject] = useState('');
   const [notes, setNotes] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
@@ -251,16 +253,19 @@ const translator = ({ initialMenuVisible = false }) => {
                   />
                 )}
 
-                <DropDownPicker
-                  open={opening}
-                  value={value}
-                  items={items}
-                  setOpen={setOpening}
-                  setValue={setValue}
-                  setItems={setItems}
-                  placeholder="Choose Language"
-                  className="my-2 p-3 text-left bg-transparent rounded-2xl border-2"
-                />
+                {/* Picker for Language Selection */}
+                <View className="w-full my-2 p-2 bg-transparent rounded-2xl border-2">
+                  <Picker
+                    selectedValue={selectedLanguage}
+                    onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
+                    style={{ height: 50, width: '100%' }}
+                  >
+                    {initialItems.map((item) => (
+                      <Picker.Item key={item.value} label={item.label} value={item.value} />
+                    ))}
+                  </Picker>
+                </View>
+
                 <View className="my-4 self-center font-rbrita">
                   <RadioGroup
                     radioButtons={radioButtons}

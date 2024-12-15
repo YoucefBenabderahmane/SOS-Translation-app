@@ -31,9 +31,9 @@ const RootLayout = () => {
       <Stack.Screen name='index' options={{ headerShown: false }} />
       <Stack.Screen name='(auth)' options={{ headerShown: false }} />
       <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-      <Stack.Screen name='./translatedPapers' options={{ headerShown: false }} />
-      <Stack.Screen name='./bookedTranslator' options={{ headerShown: false }} />
-      <Stack.Screen name='./reviewPapers' options={{ headerShown: false }} />
+      <Stack.Screen name='bookedTranslator' options={{ headerShown: false }} />
+      <Stack.Screen name='reviewPapers' options={{ headerShown: false }} />
+      <Stack.Screen name='translatedPapers' options={{ headerShown: false }} />
     </Stack>
   );
 };

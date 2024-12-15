@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView, ScrollView, Animated, TouchableWithoutFeedback } from 'react-native';
 import { TextInput, Badge } from 'react-native-paper';
-import DropDownPicker from 'react-native-dropdown-picker';
 import * as DocumentPicker from 'expo-document-picker';
 import { images, icons } from '../../constants';
 import { Link, router } from 'expo-router';
 import { FlatList } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
 
 const synthese = ({ initialMenuVisible = false }) => {
@@ -13,17 +13,23 @@ const synthese = ({ initialMenuVisible = false }) => {
   const animation = useState(new Animated.Value(0))[0];
   const [opening, setOpening] = useState(false);
   const [value, setValue] = useState(null);
-  const [items, setItems] = useState([
+  
+
+  const initialItems = [
     { label: 'English', value: 'eng' },
     { label: 'French', value: 'fr' },
     { label: 'Arabic', value: 'ar' },
     { label: 'Spanish', value: 'span' },
     { label: 'Italian', value: 'ita' },
-    { label: 'Chinese', value: 'ch' },
-    { label: 'Russian', value: 'ru' },
-    { label: 'Turkish', value: 'tr' },
-    { label: 'Deutsch', value: 'de' },
-  ]);
+    { label: 'Chinese', value: 'chi' }, // Added Chinese
+    { label: 'Russian', value: 'rus' }, // Added Russian
+    { label: 'Turkish', value: 'tur' }, // Added Turkish
+    { label: 'German', value: 'deu' },  // Added German (Deutsch)
+  ];
+
+  const [items, setItems] = useState(initialItems);
+  
+  const [selectedLanguage, setSelectedLanguage] = useState('eng');
 
   const [subject, setSubject] = useState('');
   const [num, setNum] = useState('');
@@ -67,7 +73,7 @@ const synthese = ({ initialMenuVisible = false }) => {
     ],
   };
 
-  const [selectedId, setSelectedId] = useState();
+
   const [selectedFile, setSelectedFile] = useState(null);
   const pickDocument = async () => {
     try {
@@ -196,16 +202,18 @@ const synthese = ({ initialMenuVisible = false }) => {
                   placeholder="Subject"
                 />
 
-                <DropDownPicker
-                  open={opening}
-                  value={value}
-                  items={items}
-                  setOpen={setOpening}
-                  setValue={setValue}
-                  setItems={setItems}
-                  placeholder="Choose Languages"
-                  className="w-full my-2 p-2 text-left bg-transparent rounded-2xl border-2"
-                />
+                {/* Picker for Language Selection */}
+                <View className="w-full my-2 p-2 bg-transparent rounded-2xl border-2">
+                  <Picker
+                    selectedValue={selectedLanguage}
+                    onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
+                    style={{ height: 50, width: '100%' }}
+                  >
+                    {initialItems.map((item) => (
+                      <Picker.Item key={item.value} label={item.label} value={item.value} />
+                    ))}
+                  </Picker>
+                </View>
 
                 <TextInput
                   className="w-full h-5 my-4 p-4 text-left bg-transparent rounded-2xl border-2"
